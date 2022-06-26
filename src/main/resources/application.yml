@@ -1,0 +1,70 @@
+server:
+  port: 8082
+
+spring:
+  profiles:
+    active: qa
+
+---
+
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/springBootTest
+    password: Password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+
+welcome:
+  message: Welcome!!!!!!
+
+
+#Profiles
+---
+
+spring:
+  profiles: qa
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/springBootTest-qa
+    password: Password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+
+welcome:
+  message: Welcome!!!!!!
+
+
+#To active all actuator endpoints
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+
+---
+
+spring:
+  profiles: prod
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/springBootTest-prod
+    password: Password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+
+welcome:
+  message: Welcome!!!!!!
